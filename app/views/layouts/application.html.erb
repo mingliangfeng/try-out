@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TryOut</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% if flash[:notice] %>
+	<p id="notice" ><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:alert] %>
+	<p id="alert" ><%= flash[:alert] %></p>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

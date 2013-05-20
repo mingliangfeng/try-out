@@ -1,0 +1,39 @@
+<%= form_for @client, url: "/auth/identity/register" do |f| -%>
+  <% if @client && @client.errors.any? %>
+    <div class="error_messages">
+      <h2>Validation failed:</h2>
+      <ul>
+      <% @client.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class='field'>
+    <%= f.label :email -%>* <br />
+    <%= f.text_field :email, :name => :email, :class => 'larger widest'  -%>
+
+  </div>
+
+	<div class='field'>
+    <%= f.label :name -%>* <br />
+    <%= f.text_field :name, :name => :name  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :password -%>* <br />
+    <%= f.password_field :password, :name => :password  -%>
+
+  </div>
+  
+  <div class='field'>
+    <%= f.label :password_confirmation -%>* <br />
+    <%= f.password_field :password_confirmation, :name => :password_confirmation  -%>
+
+  </div>
+  
+  <div class="actions"><%= submit_tag "Register" %></div>
+  
+<% end -%>
