@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130515024518) do
+ActiveRecord::Schema.define(:version => 20130520111847) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -27,6 +27,27 @@ ActiveRecord::Schema.define(:version => 20130515024518) do
     t.string   "password_digest"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "movies", :force => true do |t|
+    t.string   "title"
+    t.string   "director"
+    t.string   "cast"
+    t.string   "link"
+    t.string   "abstract",   :limit => 2000
+    t.string   "language"
+    t.string   "country"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.string   "title"
+    t.string   "body",       :limit => 1000
+    t.string   "reviewer"
+    t.integer  "movie_id"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "users", :force => true do |t|

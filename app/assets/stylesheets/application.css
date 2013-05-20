@@ -11,3 +11,6 @@
  *= require_self
  *= require_tree .
  */
+section.entry {padding: 5px 20px;}
+section.entry:nth-child(odd) {background:#FFE0BB;}
+section.entry:nth-child(even) {background:#F5F5F5;}

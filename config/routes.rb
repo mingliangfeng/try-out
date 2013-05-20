@@ -53,6 +53,10 @@ TryOut::Application.routes.draw do
   post "/auth/:provider/callback" => "sessions#create"
   get "/auth/failure" => "sessions#failure"
   delete "/signout" => "sessions#destroy", :as => :signout
+  
+  resources :movies do
+    resources :reviews
+  end
 
   # See how all your routes lay out with "rake routes"
 
