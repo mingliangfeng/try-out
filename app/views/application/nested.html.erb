@@ -1,0 +1,23 @@
+
+<div>
+	<section class="entry">
+	  <h2>Nested Routes</h2>
+	  <div>
+		  <strong>Movie List <%= link_to "view all", movies_path %></strong>
+		  <ul>
+		  <% Movie.all.each do |movie| %>
+		    <li>
+		      <%= link_to movie.title, movie_path(movie) %> (<%= link_to "view all reviews", movie_reviews_path(movie) %>)
+		      <% if movie.reviews.any? %>
+		      <ol>
+			      <% movie.reviews.each do |review| %>
+					     <li><%= link_to review.title, movie_review_path(movie, review) %></li>
+					  <% end %>
+					</ol>  
+		      <% end %>
+		    </li>
+		  <% end %>
+		  </ul>
+		</div>
+  </section>
+</div>

@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :current_user
+  
+  def app
+    render params[:name]
+  end
 
 private
   def current_user

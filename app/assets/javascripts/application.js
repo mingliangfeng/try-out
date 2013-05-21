@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function($) {
+    $('a[data-type=html]').on('ajax:success', function(event, data, status, xhr) {
+        $(this).siblings('p:first').html(data);
+    });
+});

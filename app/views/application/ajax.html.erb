@@ -1,0 +1,11 @@
+
+<div>
+	<section class="entry">
+	  <h2>Load Content via AJAX</h2>
+	  <div>
+		  <% movie = Movie.first %>
+		  <strong><%= movie.title %></strong> <%= link_to "load first review", movie_review_path(movie, movie.reviews.first), remote: true, "data-type" => :html %> <br/>
+		  <p class="sub"></p>
+		</div>
+  </section>
+</div>

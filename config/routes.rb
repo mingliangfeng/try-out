@@ -50,6 +50,8 @@ TryOut::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'application#index'
   
+  get "/app/:name" => "application#app", :as => :app
+  
   post "/auth/:provider/callback" => "sessions#create"
   get "/auth/failure" => "sessions#failure"
   delete "/signout" => "sessions#destroy", :as => :signout

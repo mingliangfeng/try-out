@@ -1,39 +1,8 @@
-<h1>Try Out</h1>
-<div>
-	<section class="entry">
-	  <h2>Authentication &amp; Authorisation</h2>
-	  <% if current_user %>
-	    Welcome, <%= current_user.name %>!
-	    <%= link_to "Sign Out", signout_path, method: :delete %>
-	  <% else %>
-	    <%= link_to "Sign in with Twitter", "/auth/twitter" %> <br/>
-	    <%= link_to "Sign in with Facebook", "/auth/facebook" %>
 
-			<p>
-			  <strong>Don&rsquo;t use these services?</strong>
-			  <%= link_to "Create an account", "/auth/identity/register" %> or
-			  <%= link_to "login", "/auth/identity" %> with a password.
-			</p>
-	  <% end %>
-  </section>
-	<section class="entry">
-	  <h2>Nested Routes</h2>
-	  <p>
-		  <strong>Movie List <%= link_to "view all", movies_path %></strong>
-		  <ul>
-		  <% Movie.all.each do |movie| %>
-		    <li>
-		      <%= link_to movie.title, movie_path(movie) %> (<%= link_to "view all reviews", movie_reviews_path(movie) %>)
-		      <% if movie.reviews.any? %>
-		      <ol>
-			      <% movie.reviews.each do |review| %>
-					     <li><%= link_to review.title, movie_review_path(movie_id: movie.id, id: review.id) %></li>
-					  <% end %>
-					</ol>  
-		      <% end %>
-		    </li>
-		  <% end %>
-		  </ul>
-		</p>
-  </section>
+<div>
+	<ol>
+		<li><%= link_to "Authentication & Authorisation", app_path(:auth) %></li>
+		<li><%= link_to "Nested Routes", app_path(:nested) %></li>
+		<li><%= link_to "Load Content via AJAX", app_path(:ajax) %></li>
+	</ol>
 </div>

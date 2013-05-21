@@ -13,4 +13,5 @@
  */
 section.entry {padding: 5px 20px;}
 section.entry:nth-child(odd) {background:#FFE0BB;}
-section.entry:nth-child(even) {background:#F5F5F5;}
+section.entry:nth-child(even) {background:#DFECFC;}
+p.sub {background-color: #ECECEC;}

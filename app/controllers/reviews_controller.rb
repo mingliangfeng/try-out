@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @reviews = @movie.reviews
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @reviews }
     end
   end
@@ -18,7 +18,13 @@ class ReviewsController < ApplicationController
     @review = @movie.reviews.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html do
+        if request.xhr?
+          render "show-xhr", :layout => nil
+        else
+          render
+        end
+      end
       format.json { render json: @review }
     end
   end
