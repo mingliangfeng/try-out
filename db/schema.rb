@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520111847) do
+ActiveRecord::Schema.define(:version => 20130522003721) do
+
+  create_table "books", :force => true do |t|
+    t.string   "title"
+    t.string   "author"
+    t.string   "abstract",     :limit => 2000
+    t.date     "publish_date"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -43,11 +52,12 @@ ActiveRecord::Schema.define(:version => 20130520111847) do
 
   create_table "reviews", :force => true do |t|
     t.string   "title"
-    t.string   "body",       :limit => 1000
+    t.string   "body",            :limit => 1000
     t.string   "reviewer"
-    t.integer  "movie_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.integer  "reviewable_id"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.string   "reviewable_type"
   end
 
   create_table "users", :force => true do |t|

@@ -5,6 +5,19 @@ FactoryGirl.define do
     title "MyString"
     body "MyString"
     reviewer "MyString"
+  end
+  
+  factory :movie_review, class: Review do
+    title "MyString"
+    body "MyString"
+    reviewer "MyString"
     association :movie
+  end
+  
+  factory :book_review, class: Review do
+    title "MyString"
+    body "MyString"
+    reviewer "MyString"
+    association :book
   end
 end

@@ -1,4 +1,4 @@
-<%= form_for([@movie, @review]) do |f| %>
+<%= form_for([reviewable, @review]) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -24,6 +24,6 @@
     <%= f.text_field :reviewer %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>

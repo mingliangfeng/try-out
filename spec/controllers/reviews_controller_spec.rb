@@ -32,7 +32,7 @@ describe ReviewsController do
   
   describe "GET index" do
     it "assigns all reviews as @reviews" do
-      review = create(:review)
+      review = create(:movie_review)
       get :index, {movie_id: review.movie.id, id: review.id}, valid_session
       assigns(:reviews).should eq([review])
     end
@@ -40,7 +40,7 @@ describe ReviewsController do
 
   describe "GET show" do
     it "assigns the requested review as @review" do
-      review = create(:review)
+      review = create(:movie_review)
       get :show, {movie_id: review.movie.id, :id => review.to_param}, valid_session
       assigns(:review).should eq(review)
     end
@@ -56,7 +56,7 @@ describe ReviewsController do
 
   describe "GET edit" do
     it "assigns the requested review as @review" do
-      review = create(:review)
+      review = create(:movie_review)
       get :edit, {movie_id: review.movie.id, :id => review.to_param}, valid_session
       assigns(:review).should eq(review)
     end
@@ -106,7 +106,7 @@ describe ReviewsController do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested review" do
-        review = create(:review)
+        review = create(:movie_review)
         # Assuming there are no other reviews in the database, this
         # specifies that the Review created on the previous line
         # receives the :update_attributes message with whatever params are
@@ -116,13 +116,13 @@ describe ReviewsController do
       end
 
       it "assigns the requested review as @review" do
-        review = create(:review)
+        review = create(:movie_review)
         put :update, {movie_id: review.movie.id, :id => review.to_param, :review => valid_attributes}, valid_session
         assigns(:review).should eq(review)
       end
 
       it "redirects to the review" do
-        review = create(:review)
+        review = create(:movie_review)
         put :update, {movie_id: review.movie.id, :id => review.to_param, :review => valid_attributes}, valid_session
         response.should redirect_to(movie_review_path(review.movie, review))
       end
@@ -130,7 +130,7 @@ describe ReviewsController do
 
     describe "with invalid params" do
       it "assigns the review as @review" do
-        review = create(:review)
+        review = create(:movie_review)
         # Trigger the behavior that occurs when invalid params are submitted
         Review.any_instance.stub(:save).and_return(false)
         put :update, {movie_id: review.movie.id, :id => review.to_param, :review => { "title" => "invalid value" }}, valid_session
@@ -138,7 +138,7 @@ describe ReviewsController do
       end
 
       it "re-renders the 'edit' template" do
-        review = create(:review)
+        review = create(:movie_review)
         # Trigger the behavior that occurs when invalid params are submitted
         Review.any_instance.stub(:save).and_return(false)
         put :update, {movie_id: review.movie.id, :id => review.to_param, :review => { "title" => "invalid value" }}, valid_session
@@ -149,14 +149,14 @@ describe ReviewsController do
 
   describe "DELETE destroy" do
     it "destroys the requested review" do
-      review = create(:review)
+      review = create(:movie_review)
       expect {
         delete :destroy, {movie_id: review.movie.id, :id => review.to_param}, valid_session
       }.to change(Review, :count).by(-1)
     end
 
     it "redirects to the reviews list" do
-      review = create(:review)
+      review = create(:movie_review)
       delete :destroy, {movie_id: review.movie.id, :id => review.to_param}, valid_session
       response.should redirect_to(movie_reviews_url(review.movie))
     end

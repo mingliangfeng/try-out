@@ -27,6 +27,7 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem "factory_girl_rails"
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
@@ -48,3 +49,5 @@ gem "omniauth", '~> 1.1.0'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-identity', git: 'https://github.com/intridea/omniauth-identity.git', branch: 'master'
+
+gem 'decent_exposure', '~> 2.1.0'

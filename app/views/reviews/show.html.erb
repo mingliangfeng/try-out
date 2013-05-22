@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Title:</b>
   <%= @review.title %>
@@ -15,11 +13,6 @@
   <%= @review.reviewer %>
 </p>
 
-<p>
-  <b>Movie:</b>
-  <%= @review.movie_id %>
-</p>
 
-
-<%= link_to 'Edit', edit_movie_review_path(@movie, @review) %> |
-<%= link_to 'Back', movie_reviews_path(@movie) %>
+<%= link_to 'Edit', edit_reviewable_review_path(reviewable, @review) %> |
+<%= link_to 'Back', reviewable_reviews_path(reviewable) %>

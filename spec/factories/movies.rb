@@ -9,5 +9,9 @@ FactoryGirl.define do
     abstract "MyString"
     language "MyString"
     country "MyString"
+    
+    #after(:create) {|m| FactoryGirl.create(:review, :reviewable => m) }
   end
+  
+  
 end

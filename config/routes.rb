@@ -1,4 +1,5 @@
 TryOut::Application.routes.draw do
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -56,7 +57,7 @@ TryOut::Application.routes.draw do
   get "/auth/failure" => "sessions#failure"
   delete "/signout" => "sessions#destroy", :as => :signout
   
-  resources :movies do
+  resources :movies, :books do
     resources :reviews
   end
 

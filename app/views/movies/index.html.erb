@@ -1,6 +1,6 @@
 <h1>Listing movies</h1>
 
-<table>
+<table id="movies">
   <tr>
     <th>Title</th>
     <th>Director</th>
@@ -25,7 +25,7 @@
     <td><%= movie.country %></td>
     <td><%= link_to 'Show', movie %></td>
     <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-    <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', movie, id: "d#{movie.id}", method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,22 @@
+<div>
+	<section class="entry">
+	  <h2>Polymorphic Associations</h2>
+	  <div>
+		  <strong>Book List <%= link_to "view all", books_path %></strong>
+		  <ul>
+		  <% Book.all.each do |book| %>
+		    <li>
+		      <%= link_to book.title, book_path(book) %> (<%= link_to "view all reviews", book_reviews_path(book) %>)
+		      <% if book.reviews.any? %>
+		      <ol>
+			      <% book.reviews.each do |review| %>
+					     <li><%= link_to review.title, book_review_path(book, review) %></li>
+					  <% end %>
+					</ol>  
+		      <% end %>
+		    </li>
+		  <% end %>
+		  </ul>
+		</div>
+  </section>
+</div>
