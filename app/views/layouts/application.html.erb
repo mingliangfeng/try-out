@@ -18,6 +18,7 @@
 		  <% end %>
 		</section>
 	</header>
+	<section id="navi"><%= render_navigation join_with: " &gt; " %></section>
 
 <% if flash[:notice] %>
 	<p id="notice" ><%= flash[:notice] %></p>

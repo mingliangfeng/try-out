@@ -14,7 +14,7 @@
 header {overflow: auto;}
 header h1 {float: left;}
 header section {float: right;padding-top:20px;}
-header:after {clear:both;}
+section#navi { margin: 5px 0 15px;}
 section.entry {padding: 5px 20px;}
 section.entry:nth-child(odd) {background:#FFE0BB;}
 section.entry:nth-child(even) {background:#DFECFC;}

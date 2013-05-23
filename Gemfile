@@ -51,3 +51,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-identity', git: 'https://github.com/intridea/omniauth-identity.git', branch: 'master'
 
 gem 'decent_exposure', '~> 2.1.0'
+gem "simple-navigation"
+
