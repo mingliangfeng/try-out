@@ -1,0 +1,17 @@
+<div>
+	<section class="entry">
+	  <h2>Rails Caching</h2>
+	  <div>
+		  <strong>Book List: </strong>
+			<% cache('book_list') do %>
+			  <ul id="books">
+			  <% Book.all.each do |book| %>
+			    <li>
+			      <%= link_to book.title, book_path(book) %>: <br/> <%= book.abstract %>
+			    </li>
+			  <% end %>
+			  </ul>
+		  <% end %>
+		</div>
+  </section>
+</div>

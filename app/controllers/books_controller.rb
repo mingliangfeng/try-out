@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  #cache_sweeper BookSweeper, :only => [:create, :update, :destroy]
+  
   # GET /books
   # GET /books.json
   def index

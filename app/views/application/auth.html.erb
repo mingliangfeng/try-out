@@ -4,7 +4,7 @@
 	  <h2>Authentication &amp; Authorisation</h2>
 	  <% if current_user %>
 	    Welcome, <%= current_user.name %>!
-	    <%= link_to "Sign Out", signout_path, method: :delete %>
+	    <%= link_to "Sign Out", signout_path, id: "sign_out", method: :delete %>
 	  <% else %>
 	    <%= link_to "Sign in with Twitter", "/auth/twitter" %> <br/>
 	    <%= link_to "Sign in with Facebook", "/auth/facebook" %>

@@ -12,7 +12,7 @@ describe "Sign in, Sign up" do
       page.should have_content("Welcome, #{c.name}!")
       
       page.should have_content("Sign Out")
-      click_link "Sign Out"
+      click_link "sign_out"
       page.should have_content("Signed out!")
     end
     

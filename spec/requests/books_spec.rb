@@ -30,4 +30,32 @@ describe "Books" do
     page.driver.browser.switch_to.alert.accept
     page.all('table#books tr').count.should eql(books.count + 1)
   end
+  
+  context "test caching" do
+    before do
+      ActionController::Base.perform_caching = true
+      ActionController::Base.cache_store = :file_store, "tmp/cache"
+      FileUtils.rm_rf(Dir['tmp/cache'])
+    end
+    
+    after do
+      ActionController::Base.perform_caching = false
+      FileUtils.rm_rf(Dir['tmp/cache'])
+    end
+    
+    it "book_list" do
+      books = FactoryGirl.create_list(:book, 3)
+      visit app_path(:caching)
+      page.all('ul#books li').count.should eql(books.count)
+      
+      FactoryGirl.create(:book)
+      #visit new_book_path
+      #fill_in "book_title", :with => "Book A"
+      #fill_in "book_author", :with => "Auth B"
+      #click_button "Submit"
+      
+      visit app_path(:caching)
+      page.all('ul#books li').count.should eql(books.count + 1)
+    end
+  end
 end

@@ -7,7 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1><%= link_to "Try Out", "/" %></h1>
+	<header>
+		<h1><%= link_to "Try Out", "/" %></h1>
+		<section>
+			<% if current_user %>
+		    Welcome, <%= current_user.name %>!
+		    <%= link_to "Sign Out", signout_path, method: :delete %>
+		  <% else %>
+		    <%= link_to "login", "/auth/identity" %>
+		  <% end %>
+		</section>
+	</header>
+
 <% if flash[:notice] %>
 	<p id="notice" ><%= flash[:notice] %></p>
 <% end %>
