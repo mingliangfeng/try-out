@@ -53,3 +53,4 @@ gem 'omniauth-identity', git: 'https://github.com/intridea/omniauth-identity.git
 gem 'decent_exposure', '~> 2.1.0'
 gem "simple-navigation"
 
+gem 'thin'

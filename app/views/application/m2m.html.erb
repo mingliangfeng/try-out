@@ -1,0 +1,38 @@
+<div>
+	<section class="entry">
+	  <h2>M2M Self-associated with Extra Attributes</h2>
+	  <div>
+		  <strong>Top Categories</strong>
+		  <ul>
+		  <% Category.top_categories.each do |category| %>
+		    <li>
+		      <%= category.name %> sub categories:
+		      <% if category.sub_categories.any? %>
+		      <ol>
+			      <% category.sub_categories.each do |sub_category| %>
+					     <li><%= sub_category.name %></li>
+					  <% end %>
+					</ol>  
+		      <% end %>
+		    </li>
+		  <% end %>
+		  </ul>
+		
+			<strong>Sub Categories</strong>
+		  <ul>
+		  <% Category.sub_categories.each do |category| %>
+		    <li>
+		      <%= category.name %> parent categories:
+		      <% if category.parent_categories.any? %>
+		      <ol>
+			      <% category.parent_categories.each do |parent_category| %>
+					     <li><%= parent_category.name %></li>
+					  <% end %>
+					</ol>  
+		      <% end %>
+		    </li>
+		  <% end %>
+		  </ul>
+		</div>
+  </section>
+</div>
