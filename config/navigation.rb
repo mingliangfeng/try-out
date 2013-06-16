@@ -60,6 +60,7 @@ SimpleNavigation::Configuration.run do |navigation|
       sub_nav.item :ajax, 'Load Content via AJAX', app_path(:ajax)
       sub_nav.item :polym, 'Polymorphic Associations', app_path(:polym)
       sub_nav.item :caching, 'Rails Caching', app_path(:caching)
+      sub_nav.item :m2m, 'M2M Self-associated with Extra Attributes', app_path(:m2m)
     end
 
     # You can also specify a condition-proc that needs to be fullfilled to display an item.
